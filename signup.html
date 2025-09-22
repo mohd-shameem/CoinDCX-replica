@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-CoinDCX</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .signup-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .signup-card h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            color: #004d99;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .create-account-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #004d99;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .create-account-btn:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-card">
+        <h2>Create Account</h2>
+        <form  id="signup-form">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="create-account-btn">Create Account</button>
+        </form>
+    </div>
+<script>
+      document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById('full-name').value;
+    const email = document.getElementById('email').value;   // fixed here
+    const password = document.getElementById('password').value;
+
+    const user = {
+        fullName: fullName,
+        email: email,
+        password: password
+    };
+
+    localStorage.setItem('user', JSON.stringify(user));
+
+    window.location.href = 'signup-success.html';
+});
+
+    </script>
+</body>
+</html>
